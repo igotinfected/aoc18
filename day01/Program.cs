@@ -14,7 +14,7 @@ namespace day01
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    Int32.TryParse(line, out var change);
+                    var change = Int32.Parse(line);
                     frequency += change;
                 }
 
@@ -31,7 +31,7 @@ namespace day01
                 while (true)
                 {
                     line = sr.ReadLine();
-                    Int32.TryParse(line, out var change);
+                    var change = Int32.Parse(line);
 
                     if (frequencies.Add((int)frequency)) // if unique, continue
                         frequency += change;
