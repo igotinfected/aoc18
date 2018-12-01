@@ -6,7 +6,7 @@ namespace day01
 {
     class Program
     {
-        static int partOne()
+        static int PartOne()
         {
             using (var sr = new StreamReader("input.txt"))
             {
@@ -23,7 +23,7 @@ namespace day01
         }
 
         static HashSet<int> frequencies = new HashSet<int>();
-        static int partTwo(int frequency)
+        static int PartTwo(int frequency)
         {
             using (var sr = new StreamReader("input.txt"))
             {
@@ -40,7 +40,7 @@ namespace day01
 
                     if (sr.Peek() == -1) // reset stream if we reach the end
                     {
-                        frequency = partTwo(frequency);
+                        frequency = PartTwo(frequency);
                         break;
                     }
                 }
@@ -51,8 +51,8 @@ namespace day01
 
         static void Main(string[] args)
         {
-            string resultOne = "result 1: " + partOne();
-            string resultTwo = "result 2: " + partTwo(0);
+            string resultOne = "result 1: " + PartOne();
+            string resultTwo = "result 2: " + PartTwo(0);
 
             Console.WriteLine(resultOne);
             Console.WriteLine(resultTwo);
