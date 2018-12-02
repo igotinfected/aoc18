@@ -33,7 +33,7 @@ namespace day01
                     line = sr.ReadLine();
                     var change = Int32.Parse(line);
 
-                    if (frequencies.Add((int)frequency)) // if unique, continue
+                    if (frequencies.Add(frequency)) // if unique, continue
                         frequency += change;
                     else // found our result
                         break;
