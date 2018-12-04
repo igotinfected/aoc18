@@ -28,7 +28,6 @@ namespace day04
     class Program
     {
 
-
         static int PartOne()
         {
             using (var sr = new StreamReader("input.txt"))
