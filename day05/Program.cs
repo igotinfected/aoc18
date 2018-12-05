@@ -46,7 +46,7 @@ namespace day05
                     while (input.MoveNext())
                     {
                         var unit = input.Current;
-                        
+
                         // skip if char is the one we want removed
                         if (unit == skipChar || unit == skipChar + 32 || unit == '\n')
                             continue;
@@ -59,11 +59,8 @@ namespace day05
                             polymer.Push(unit);
                     }
 
-                    if (polymer.Count != 0)
-                    {
-                        lengths.Add(polymer.Count);
-                        polymer.Clear();
-                    }
+                    lengths.Add(polymer.Count);
+                    polymer.Clear();
                 }
             }
 
@@ -84,4 +81,3 @@ namespace day05
         }
     }
 }
-
