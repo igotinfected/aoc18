@@ -34,7 +34,7 @@ namespace day08
 
     class Program
     {
-        public static Node ProcessInput(List<int> input)
+        static Node ProcessInput(List<int> input)
         {
             var result = new Node();
 
