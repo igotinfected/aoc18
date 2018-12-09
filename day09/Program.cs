@@ -7,13 +7,6 @@ namespace day09
 {
     class Program
     {
-        static void Print(List<int> circle)
-        {
-            foreach (var marble in circle)
-                System.Console.Write(marble + " ");
-            System.Console.WriteLine();
-        }
-
         static int Mod(int x, int m)
         {
             int r = x % m;
