@@ -26,12 +26,13 @@ namespace day10
             Y += Dy;
         }
     }
+
     class Program
     {
         static int PartOne()
         {
             var points = new List<Point>();
-            using (var sr = new StreamReader("test.txt"))
+            using (var sr = new StreamReader("input.txt"))
             {
                 var input = Input(sr);
 
@@ -53,9 +54,10 @@ namespace day10
                 var maxX = points.Max(p => p.X);
                 var maxY = points.Max(p => p.Y);
 
+                var seconds = 0;
                 while (true)
-                {
-                    var pointsCopy = new List<Point>(points);
+                {   // store a copy of our points
+                    var copy = points.Select(p => new { X = p.X, Y = p.Y }).ToList();
 
                     points.ForEach(p => p.Move());
 
@@ -64,33 +66,29 @@ namespace day10
                     var newMaxX = points.Max(p => p.X);
                     var newMaxY = points.Max(p => p.Y);
 
-                    if (newMaxX - newMaxY > maxX - minX || newMaxY - newMinY > maxY - minY)
+                    if (newMaxX - newMinX > maxX - minX || newMaxY - newMinY > maxY - minY)
                     {
-                        for (var i = minY; i <= maxY; i++)
-                        {
+                        for (var i = minY; i <= maxY; i++, Console.WriteLine())
                             for (var j = minX; j <= maxX; j++)
-                            {
-                                Console.Write(pointsCopy.Any(p => p.X == j && p.Y == i) ? "#" : ".");
-                            }
-                            Console.WriteLine();
-                        }
-                        Console.ReadLine();
+                                Console.Write(copy.Any(p => p.X == j && p.Y == i) ? "#" : ".");
+                        break;
                     }
 
                     minX = newMinX;
                     minY = newMinY;
                     maxX = newMaxX;
                     maxY = newMaxY;
+
+                    seconds++;
                 }
+
+                return seconds;
             }
-
-
-            return 0;
         }
 
-        static int PartTwo()
-        {
-            return 0;
+        static int PartTwo(int res)
+        {   // I was too lazy today 😎
+            return res;
         }
 
         static IEnumerable<String> Input(StreamReader input)
@@ -102,8 +100,7 @@ namespace day10
 
         static void Main(string[] args)
         {
-            Console.WriteLine("result 1: " + PartOne());
-            Console.WriteLine("result 2: " + PartTwo());
+            Console.WriteLine("second: " + PartTwo(PartOne()));
         }
     }
 }
